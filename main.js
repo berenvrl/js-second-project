@@ -19,16 +19,19 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     const buttonValue = button.innerHTML;
 
-    if (buttonValue === '.') {
-      if (!decimalEntered) {
+    if (currentCalculation.length < 10) {
+      // Check if not exceeding 10 digits
+      if (buttonValue === '.') {
+        if (!decimalEntered) {
+          currentCalculation += buttonValue;
+          decimalEntered = true;
+        }
+      } else {
         currentCalculation += buttonValue;
-        decimalEntered = true;
       }
-    } else {
-      currentCalculation += buttonValue;
-    }
 
-    display.innerHTML = currentCalculation;
+      display.innerHTML = currentCalculation;
+    }
   });
 });
 
@@ -74,7 +77,7 @@ clearButton.addEventListener('click', () => {
   currentResult = 0;
   sign = '';
   newOperation = true;
-  decimalEntered = false;
+  decimalEntered = false; // Reset the flag
   display.innerHTML = '0';
 });
 
@@ -106,14 +109,20 @@ function operate() {
         return;
       }
       currentResult /= currentValue;
-      currentResult = currentResult.toFixed(2);
+      currentResult = parseFloat(currentResult.toFixed(2));
     } else {
       currentResult = currentValue;
     }
+
+    // Truncate result to 10 digits
+    currentResult = parseFloat(currentResult.toFixed(10));
+
     display.innerHTML = currentResult;
     currentCalculation = '';
+    decimalEntered = false;
   }
 }
+
 // Add keyboard link to the calculator
 document.addEventListener('keydown', (event) => {
   const key = event.key;
