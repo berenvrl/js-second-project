@@ -10,25 +10,35 @@
     <main class="main">
       <div class="container">
         <label class="displayArea">0</label>
-        <button class="btn btn-gray clearBtn">AC</button>
-        <button class="btn btn-gray minusPlusBtn">undo</button>
-        <button class="btn btn-gray remainderBtn">%</button>
-        <button class="btn btn-orange dividerBtn">/</button>
-        <button class="btn btn-dark">7</button>
-        <button class="btn btn-dark">8</button>
-        <button class="btn btn-dark">9</button>
-        <button class="btn btn-orange multiplyBtn">*</button>
-        <button class="btn btn-dark">4</button>
-        <button class="btn btn-dark">5</button>
-        <button class="btn btn-dark">6</button>
-        <button class="btn btn-orange minusBtn">-</button>
-        <button class="btn btn-dark">1</button>
-        <button class="btn btn-dark">2</button>
-        <button class="btn btn-dark">3</button>
-        <button class="btn btn-orange plusBtn">+</button>
-        <button class="btn btn-double btn-dark">0</button>
-        <button class="btn btn-dark">.</button>
-        <button class="btn btn-orange plusBtn equalsBtn">=</button>
+        <button class="btn btn-gray clearBtn" data-key="Escape">AC</button>
+        <button class="btn btn-gray minusPlusBtn" data-key="Backspace">
+          Del
+        </button>
+        <button class="btn btn-gray remainderBtn keyboard" data-key="%">
+          %
+        </button>
+        <button class="btn btn-orange dividerBtn keyboard" data-key="/">
+          /
+        </button>
+        <button class="btn btn-dark keyboard" data-key="7">7</button>
+        <button class="btn btn-dark keyboard" data-key="8">8</button>
+        <button class="btn btn-dark keyboard" data-key="9">9</button>
+        <button class="btn btn-orange multiplyBtn keyboard" data-key="*">
+          *
+        </button>
+        <button class="btn btn-dark keyboard" data-key="4">4</button>
+        <button class="btn btn-dark keyboard" data-key="5">5</button>
+        <button class="btn btn-dark keyboard" data-key="6">6</button>
+        <button class="btn btn-orange minusBtn keyboard" data-key="-">-</button>
+        <button class="btn btn-dark keyboard" data-key="1">1</button>
+        <button class="btn btn-dark keyboard" data-key="2">2</button>
+        <button class="btn btn-dark keyboard" data-key="3">3</button>
+        <button class="btn btn-orange plusBtn keyboard" data-key="+">+</button>
+        <button class="btn btn-double btn-dark keyboard" data-key="0">0</button>
+        <button class="btn btn-dark keyboard" data-key=".">.</button>
+        <button class="btn btn-orange plusBtn equalsBtn keyboard" data-key="=">
+          =
+        </button>
       </div>
     </main>
     <script src="main.js"></script>
