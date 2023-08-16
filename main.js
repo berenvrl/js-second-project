@@ -13,17 +13,21 @@ let currentCalculation = '';
 let currentResult = 0;
 let sign = '';
 let newOperation = true;
+let decimalEntered = false;
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     const buttonValue = button.innerHTML;
 
-    if (newOperation) {
-      currentCalculation = buttonValue;
-      newOperation = false;
+    if (buttonValue === '.') {
+      if (!decimalEntered) {
+        currentCalculation += buttonValue;
+        decimalEntered = true;
+      }
     } else {
       currentCalculation += buttonValue;
     }
+
     display.innerHTML = currentCalculation;
   });
 });
@@ -32,6 +36,7 @@ plusButton.addEventListener('click', () => {
   operate();
   sign = '+';
   newOperation = true;
+  decimalEntered = false;
 });
 
 minusButton.addEventListener('click', () => {
@@ -69,11 +74,15 @@ clearButton.addEventListener('click', () => {
   currentResult = 0;
   sign = '';
   newOperation = true;
+  decimalEntered = false;
   display.innerHTML = '0';
 });
 
 undoButton.addEventListener('click', () => {
   if (currentCalculation.length > 0) {
+    if (currentCalculation[currentCalculation.length - 1] === '.') {
+      decimalEntered = false;
+    }
     currentCalculation = currentCalculation.slice(0, -1);
     display.innerHTML = currentCalculation;
   }
