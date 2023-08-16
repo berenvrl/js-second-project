@@ -33,7 +33,7 @@ html {
 .displayArea {
   grid-column-start: 1;
   grid-column-end: 5;
-  border: 3px solid black;
+  /* border: 3px solid black; */
   margin: 2px 0;
   padding-right: 5px;
   font-size: 4rem;
