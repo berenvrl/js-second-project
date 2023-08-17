@@ -1,15 +1,19 @@
-const display = document.querySelector('.displayArea');
-const buttons = document.querySelectorAll('.btn-dark');
-const plusButton = document.querySelector('.plusBtn');
-const minusButton = document.querySelector('.minusBtn');
-const equalsButton = document.querySelector('.equalsBtn');
-const multiplyButton = document.querySelector('.multiplyBtn');
-const dividerButton = document.querySelector('.dividerBtn');
-const clearButton = document.querySelector('.clearBtn');
-const undoButton = document.querySelector('.minusPlusBtn');
-const remainderButton = document.querySelector('.remainderBtn');
+//Selecting display area
+const display = document.querySelector(".displayArea");
+//Selecting buttons
+const buttons = document.querySelectorAll(".btn-dark");
+const plusButton = document.querySelector(".plusBtn");
+const minusButton = document.querySelector(".minusBtn");
+const equalsButton = document.querySelector(".equalsBtn");
+const multiplyButton = document.querySelector(".multiplyBtn");
+const dividerButton = document.querySelector(".dividerBtn");
+const clearButton = document.querySelector(".clearBtn");
+const undoButton = document.querySelector(".minusPlusBtn");
+const remainderButton = document.querySelector(".remainderBtn");
 
-let currentCalculation = '';
+
+//Initial values
+let currentCalculation = "";
 let currentResult = 0;
 let sign = '';
 let newOperation = true;
@@ -35,6 +39,7 @@ buttons.forEach((button) => {
   });
 });
 
+//addition
 plusButton.addEventListener('click', () => {
   operate();
   sign = '+';
@@ -42,18 +47,21 @@ plusButton.addEventListener('click', () => {
   decimalEntered = false;
 });
 
+//Substraction
 minusButton.addEventListener('click', () => {
   operate();
   sign = '-';
   newOperation = true;
 });
 
+//Multiplication
 multiplyButton.addEventListener('click', () => {
   operate();
   sign = '*';
   newOperation = true;
 });
 
+//Division
 dividerButton.addEventListener('click', () => {
   operate();
   sign = '/';
@@ -88,9 +96,11 @@ undoButton.addEventListener('click', () => {
     }
     currentCalculation = currentCalculation.slice(0, -1);
     display.innerHTML = currentCalculation;
+
   }
 });
 
+//This function must take num1,num2 and operation!!!!!
 function operate() {
   if (currentCalculation !== '') {
     const currentValue = parseFloat(currentCalculation);
@@ -120,6 +130,7 @@ function operate() {
     display.innerHTML = currentResult;
     currentCalculation = '';
     decimalEntered = false;
+
   }
 }
 
