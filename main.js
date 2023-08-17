@@ -1,19 +1,18 @@
 //Selecting display area
-const display = document.querySelector(".displayArea");
+const display = document.querySelector('.displayArea');
 //Selecting buttons
-const buttons = document.querySelectorAll(".btn-dark");
-const plusButton = document.querySelector(".plusBtn");
-const minusButton = document.querySelector(".minusBtn");
-const equalsButton = document.querySelector(".equalsBtn");
-const multiplyButton = document.querySelector(".multiplyBtn");
-const dividerButton = document.querySelector(".dividerBtn");
-const clearButton = document.querySelector(".clearBtn");
-const undoButton = document.querySelector(".minusPlusBtn");
-const remainderButton = document.querySelector(".remainderBtn");
-
+const buttons = document.querySelectorAll('.btn-dark');
+const plusButton = document.querySelector('.plusBtn');
+const minusButton = document.querySelector('.minusBtn');
+const equalsButton = document.querySelector('.equalsBtn');
+const multiplyButton = document.querySelector('.multiplyBtn');
+const dividerButton = document.querySelector('.dividerBtn');
+const clearButton = document.querySelector('.clearBtn');
+const undoButton = document.querySelector('.minusPlusBtn');
+const remainderButton = document.querySelector('.remainderBtn');
 
 //Initial values
-let currentCalculation = "";
+let currentCalculation = '';
 let currentResult = 0;
 let sign = '';
 let newOperation = true;
@@ -96,7 +95,6 @@ undoButton.addEventListener('click', () => {
     }
     currentCalculation = currentCalculation.slice(0, -1);
     display.innerHTML = currentCalculation;
-
   }
 });
 
@@ -130,7 +128,6 @@ function operate() {
     display.innerHTML = currentResult;
     currentCalculation = '';
     decimalEntered = false;
-
   }
 }
 
@@ -147,7 +144,8 @@ document.addEventListener('keydown', (event) => {
     key === '/' ||
     key === '%' ||
     key === '=' ||
-    key === 'Enter'
+    key === 'Enter' ||
+    key === '.'
   ) {
     // Simulate a click on the corresponding button
     const button = document.querySelector(`.keyboard[data-key="${key}"]`);
