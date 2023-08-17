@@ -1,5 +1,6 @@
-//Selecting elements
+//Selecting display area
 const display = document.querySelector(".displayArea");
+//Selecting buttons
 const buttons = document.querySelectorAll(".btn-dark");
 const plusButton = document.querySelector(".plusBtn");
 const minusButton = document.querySelector(".minusBtn");
@@ -10,6 +11,7 @@ const clearButton = document.querySelector(".clearBtn");
 const undoButton = document.querySelector(".minusPlusBtn");
 const remainderButton = document.querySelector(".remainderBtn");
 
+//Initial values
 let currentCalculation = "";
 let currentResult = 0;
 let sign = "";
@@ -25,7 +27,7 @@ buttons.forEach((button) => {
     } else {
       currentCalculation += buttonValue;
     }
-    display.innerHTML = currentCalculation;
+    display.value = currentCalculation;
   });
 });
 
@@ -74,13 +76,13 @@ clearButton.addEventListener("click", () => {
   currentResult = 0;
   sign = "";
   newOperation = true;
-  display.innerHTML = "0";
+  display.value = "0";
 });
 
 undoButton.addEventListener("click", () => {
   if (currentCalculation.length > 0) {
     currentCalculation = currentCalculation.slice(0, -1);
-    display.innerHTML = currentCalculation;
+    display.value = currentCalculation;
   }
 });
 
@@ -99,7 +101,7 @@ function operate() {
       currentResult = parseFloat(currentResult.toFixed(2));
     } else if (sign === "/") {
       if (currentValue === 0) {
-        display.innerHTML = "error";
+        display.value = "error";
         return;
       }
       currentResult /= currentValue;
@@ -107,7 +109,7 @@ function operate() {
     } else {
       currentResult = currentValue;
     }
-    display.innerHTML = currentResult;
+    display.value = currentResult;
     currentCalculation = "";
   }
 }
