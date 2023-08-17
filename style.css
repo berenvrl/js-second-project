@@ -46,12 +46,12 @@ html {
 .displayArea {
   grid-column-start: 1;
   grid-column-end: 5;
+  background-color: inherit;
   /* border: 3px solid black; */
   margin: 2px 0;
   padding-right: 1rem;
   font-size: 4rem;
-  display: flex;
-  flex-flow: row-reverse;
+  text-align: right;
   color: #fff;
   max-width: 400px;
   min-height: 3rem;
