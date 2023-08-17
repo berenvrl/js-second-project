@@ -30,6 +30,16 @@ buttons.forEach((button) => {
           decimalEntered = true;
         }
       } else {
+        if (currentCalculation === '0' && buttonValue === '0') {
+          // Prevent adding more zeros at the beginning 'thanks for Viktor project'
+          return;
+        }
+
+        if (currentCalculation === '0') {
+          // Remove the leading zero if it's followed by a non-zero digit
+          currentCalculation = '';
+        }
+
         currentCalculation += buttonValue;
       }
 
