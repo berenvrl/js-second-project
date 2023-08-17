@@ -14,5 +14,5 @@ To start making calculations, you can hover the mouse on the calculator.
 
 # Visual of the project
 
-Login page of the app
+preview page of the app
 ![calculator](calc.png)
